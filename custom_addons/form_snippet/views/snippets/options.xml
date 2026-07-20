@@ -12,13 +12,13 @@
                 <we-input string="Skok (Step)" data-select-data-attribute="" data-attribute-name="step" placeholder="np. 10"/>
                 <we-input string="Wartość startowa" data-select-data-attribute="" data-attribute-name="value" placeholder="np. 50"/>
                 
-                <!-- Opcje pozycjonowania (nadają klasy na całe pole) -->
-                <we-select string="Pozycja wartości" data-no-preview="true">
-                    <we-button data-select-class="">Ukryta</we-button>
-                    <we-button data-select-class="s_slider_value_top">Góra</we-button>
-                    <we-button data-select-class="s_slider_value_bottom">Dół</we-button>
-                    <we-button data-select-class="s_slider_value_left">Lewo</we-button>
-                    <we-button data-select-class="s_slider_value_right">Prawo</we-button>
+                <!-- ZMIANA: używamy jednego słowa z małych liter "valuepos" -->
+                <we-select string="Pozycja wartości" data-attribute-name="valuepos" data-no-preview="true">
+                    <we-button data-select-data-attribute="">Ukryta</we-button>
+                    <we-button data-select-data-attribute="top">Góra</we-button>
+                    <we-button data-select-data-attribute="bottom">Dół</we-button>
+                    <we-button data-select-data-attribute="left">Lewo</we-button>
+                    <we-button data-select-data-attribute="right">Prawo</we-button>
                 </we-select>
             </div>
         </xpath>

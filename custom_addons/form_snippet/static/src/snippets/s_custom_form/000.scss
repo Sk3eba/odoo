@@ -3,30 +3,30 @@
     display: none !important;
 }
 
-/* Pokazanie wartości na podstawie wybranej opcji z edytora */
-.s_website_form_field.s_slider_value_top .slider-value-display,
-.s_website_form_field.s_slider_value_bottom .slider-value-display,
-.s_website_form_field.s_slider_value_left .slider-value-display,
-.s_website_form_field.s_slider_value_right .slider-value-display {
+/* Pokazanie wartości na podstawie atrybutu */
+.s_website_form_field[data-valuepos="top"] .slider-value-display,
+.s_website_form_field[data-valuepos="bottom"] .slider-value-display,
+.s_website_form_field[data-valuepos="left"] .slider-value-display,
+.s_website_form_field[data-valuepos="right"] .slider-value-display {
     display: block !important;
 }
 
 /* --- KIERUNKI (Modyfikacja flexboxa z Bootstrapa) --- */
 
-/* Prawa / Lewa strona (układ w rzędzie) */
-.s_website_form_field.s_slider_value_right .s_slider_wrapper { flex-direction: row; }
-.s_website_form_field.s_slider_value_left .s_slider_wrapper { flex-direction: row-reverse; }
+/* Prawa / Lewa strona */
+.s_website_form_field[data-valuepos="right"] .s_slider_wrapper { flex-direction: row; }
+.s_website_form_field[data-valuepos="left"] .s_slider_wrapper { flex-direction: row-reverse; }
 
-/* Góra / Dół (układ kolumnowy, rozciągnięcie elementów i wyśrodkowanie tekstu) */
-.s_website_form_field.s_slider_value_top .s_slider_wrapper { 
+/* Góra / Dół */
+.s_website_form_field[data-valuepos="top"] .s_slider_wrapper { 
     flex-direction: column-reverse; 
     align-items: stretch !important; 
 }
-.s_website_form_field.s_slider_value_bottom .s_slider_wrapper { 
+.s_website_form_field[data-valuepos="bottom"] .s_slider_wrapper { 
     flex-direction: column; 
     align-items: stretch !important; 
 }
-.s_website_form_field.s_slider_value_top .slider-value-display,
-.s_website_form_field.s_slider_value_bottom .slider-value-display {
+.s_website_form_field[data-valuepos="top"] .slider-value-display,
+.s_website_form_field[data-valuepos="bottom"] .slider-value-display {
     text-align: center;
 }

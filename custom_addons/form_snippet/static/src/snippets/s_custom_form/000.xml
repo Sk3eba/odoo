@@ -2,20 +2,22 @@
 <templates xml:space="preserve">
     <!-- Definiujemy nasz typ pola -->
     <t t-name="website.form_field_range">
-        <!-- Używamy natywnego opakowania Odoo, które obsługuje Position/Description -->
         <t t-call="website.form_field">
-            <input
-                type="range"
-                class="form-range s_website_form_input"
-                t-att-name="field.name"
-                t-att-required="field.required || field.modelRequired || None"
-                t-att-id="field.id"
-                min="0" max="100" step="10" 
-                t-att-value="field.value or 50"
-            />
-            <!-- Nasz customowy element do wyświetlania wartości -->
-            <div class="slider-value-display text-center fw-bold fs-4 mt-2 text-primary">
-                <t t-esc="field.value or 50"/>
+            <!-- Odoo-way: Używamy standardowych klas Bootstrap 5 do struktury (d-flex, gap-2) -->
+            <div class="s_slider_wrapper d-flex align-items-center gap-3 w-100">
+                <input
+                    type="range"
+                    class="form-range s_website_form_input flex-grow-1 m-0"
+                    t-att-name="field.name"
+                    t-att-required="field.required || field.modelRequired || None"
+                    t-att-id="field.id"
+                    min="0" max="100" step="10" 
+                    t-att-value="field.value or 50"
+                />
+                <!-- Nasz wyświetlacz wartości (m-0 usuwa domyślne marginesy) -->
+                <div class="slider-value-display fw-bold fs-4 text-primary m-0">
+                    <t t-esc="field.value or 50"/>
+                </div>
             </div>
         </t>
     </t>

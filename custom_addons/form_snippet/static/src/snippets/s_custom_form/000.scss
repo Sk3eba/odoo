@@ -1,18 +1,32 @@
-.s_custom_form .o_website_form_input[type="range"] {
-    padding: 0 !important;
-    border: none !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    height: auto !important;
-    width: 100%;
+/* Domyślnie wartość jest ukryta (widoczny sam suwak) */
+.s_website_form_field[data-type="range"] .slider-value-display {
+    display: none !important;
 }
 
-/* Domyślnie ukrywamy cyfrę... */
-.s_website_form_field .slider-value-display {
-    display: none;
+/* Pokazanie wartości na podstawie wybranej opcji z edytora */
+.s_website_form_field.s_slider_value_top .slider-value-display,
+.s_website_form_field.s_slider_value_bottom .slider-value-display,
+.s_website_form_field.s_slider_value_left .slider-value-display,
+.s_website_form_field.s_slider_value_right .slider-value-display {
+    display: block !important;
 }
 
-/* ...chyba że kontener główny ma nadaną z edytora klasę pokazującą */
-.s_website_form_field.s_slider_show_value .slider-value-display {
-    display: block;
+/* --- KIERUNKI (Modyfikacja flexboxa z Bootstrapa) --- */
+
+/* Prawa / Lewa strona (układ w rzędzie) */
+.s_website_form_field.s_slider_value_right .s_slider_wrapper { flex-direction: row; }
+.s_website_form_field.s_slider_value_left .s_slider_wrapper { flex-direction: row-reverse; }
+
+/* Góra / Dół (układ kolumnowy, rozciągnięcie elementów i wyśrodkowanie tekstu) */
+.s_website_form_field.s_slider_value_top .s_slider_wrapper { 
+    flex-direction: column-reverse; 
+    align-items: stretch !important; 
+}
+.s_website_form_field.s_slider_value_bottom .s_slider_wrapper { 
+    flex-direction: column; 
+    align-items: stretch !important; 
+}
+.s_website_form_field.s_slider_value_top .slider-value-display,
+.s_website_form_field.s_slider_value_bottom .slider-value-display {
+    text-align: center;
 }

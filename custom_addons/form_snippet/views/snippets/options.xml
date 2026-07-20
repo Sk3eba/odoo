@@ -12,8 +12,14 @@
                 <we-input string="Skok (Step)" data-select-data-attribute="" data-attribute-name="step" placeholder="np. 10"/>
                 <we-input string="Wartość startowa" data-select-data-attribute="" data-attribute-name="value" placeholder="np. 50"/>
                 
-                <!-- NOWOŚĆ: Opcja włączająca/wyłączająca podgląd wartości pod suwakiem -->
-                <we-checkbox string="Pokaż wartość pod suwakiem" data-select-class="s_slider_show_value"/>
+                <!-- Opcje pozycjonowania (nadają klasy na całe pole) -->
+                <we-select string="Pozycja wartości" data-no-preview="true">
+                    <we-button data-select-class="">Ukryta</we-button>
+                    <we-button data-select-class="s_slider_value_top">Góra</we-button>
+                    <we-button data-select-class="s_slider_value_bottom">Dół</we-button>
+                    <we-button data-select-class="s_slider_value_left">Lewo</we-button>
+                    <we-button data-select-class="s_slider_value_right">Prawo</we-button>
+                </we-select>
             </div>
         </xpath>
     </template>

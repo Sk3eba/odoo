@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_custom_form" inherit_id="website.s_website_form" primary="True" name="Custom Form">
+        <xpath expr="." position="attributes">
+            <attribute name="data-snippet">form_snippet.s_custom_form</attribute>
+            <attribute name="data-name">Custom Form</attribute>
+            <attribute name="class" add="s_custom_form" separator=" "/>
+        </xpath>
+    </template>
+</odoo>

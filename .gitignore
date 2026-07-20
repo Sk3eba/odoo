@@ -1,0 +1,12 @@
+# lokalne źródła referencyjne / zewnętrzne repozytoria 
+odoo/ 
+enterprise/ 
+  
+# lokalne ustawienia edytora i cache 
+.vscode/settings.json 
+__pycache__/ 
+*.pyc 
+*.pyo 
+*.log 
+# lokalna konfiguracja środowiska 
+.env 

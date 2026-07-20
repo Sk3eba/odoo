@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <templates xml:space="preserve">
+    <!-- Definiujemy nasz typ pola -->
     <t t-name="website.form_field_range">
-        <!-- Klasa s_slider_show_value jest naszą customową flagą do pokazywania/ukrywania cyfry -->
-        <div class="mb-0 py-2 col-12 s_website_form_field s_website_form_custom s_slider_show_value" data-type="range" data-name="Field">
-            <div class="row s_col_no_resize s_col_no_bgcolor">
-                
-                <!-- 1. PRZYWRÓCONO: style="width: 200px" - to warunek konieczny, by Label Position w Odoo działało -->
-                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="">
-                    <span class="s_website_form_label_content">Twoja ocena</span>
-                </label>
-                
-                <div class="col-sm">
-                    <!-- 2. IZOLACJA: Oddzielamy input, by Odoo mogło tu bezpiecznie wstrzyknąć "Description" -->
-                    <div class="o_slider_input_wrapper">
-                        <input type="range" class="form-range s_website_form_input" name="" min="0" max="100" step="10" value="50"/>
-                    </div>
-                    
-                    <!-- 3. WYŚWIETLACZ CYFRY: Teraz bezpiecznie na samym dole -->
-                    <div class="slider-value-display text-center fw-bold fs-4 mt-2 text-primary">50</div>
-                </div>
-                
+        <!-- Używamy natywnego opakowania Odoo, które obsługuje Position/Description -->
+        <t t-call="website.form_field">
+            <input
+                type="range"
+                class="form-range s_website_form_input"
+                t-att-name="field.name"
+                t-att-required="field.required || field.modelRequired || None"
+                t-att-id="field.id"
+                min="0" max="100" step="10" 
+                t-att-value="field.value or 50"
+            />
+            <!-- Nasz customowy element do wyświetlania wartości -->
+            <div class="slider-value-display text-center fw-bold fs-4 mt-2 text-primary">
+                <t t-esc="field.value or 50"/>
             </div>
-        </div>
+        </t>
     </t>
 </templates>

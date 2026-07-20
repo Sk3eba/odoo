@@ -1,0 +1,18 @@
+.s_custom_form .o_website_form_input[type="range"] {
+    padding: 0 !important;
+    border: none !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    height: auto !important;
+    width: 100%;
+}
+
+/* Domyślnie ukrywamy cyfrę... */
+.s_website_form_field .slider-value-display {
+    display: none;
+}
+
+/* ...chyba że kontener główny ma nadaną z edytora klasę pokazującą */
+.s_website_form_field.s_slider_show_value .slider-value-display {
+    display: block;
+}

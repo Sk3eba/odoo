@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Główne menu aplikacji -->
+    <menuitem id="estate_menu_root" name="Real Estate">
+        
+        <!-- Pierwsza zakładka: Advertisements -->
+        <menuitem id="estate_first_level_menu" name="Advertisements">
+            <menuitem id="estate_model_menu_action" action="estate_property_action"/>
+        </menuitem>
+
+        <!-- Druga zakładka: Configuration -->
+        <menuitem id="estate_menu_configuration" name="Configuration">
+            <!-- Opcja wywołująca akcję dla typów nieruchomości -->
+            <menuitem id="estate_property_type_menu" action="estate_property_type_action"/>
+        </menuitem>
+
+    </menuitem>
+</odoo>

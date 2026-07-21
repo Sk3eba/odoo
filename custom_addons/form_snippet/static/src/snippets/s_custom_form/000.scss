@@ -1,3 +1,15 @@
+/* Odstęp między głównym pytaniem a opcjami (np. nad pierwszym checkboxem) */
+.s_website_form_field .s_website_form_label {
+    margin-bottom: 0.67rem !important; /* Dostosuj tę wartość, np. 15px lub 1.5rem */
+}
+
+/* Wcięcie opcji wyboru (checkbox/radio) w prawo */
+.s_website_form_field .form-check,
+.s_website_form_field .checkbox,
+.s_website_form_field .radio {
+    margin-left: 0.67rem !important; /* Możesz dostosować tę wartość, np. na 20px lub 2rem */
+}
+
 /* Domyślnie wartość jest ukryta (widoczny sam suwak) */
 .s_website_form_field[data-type="range"] .slider-value-display {
     display: none !important;
@@ -29,4 +41,20 @@
 .s_website_form_field[data-valuepos="top"] .slider-value-display,
 .s_website_form_field[data-valuepos="bottom"] .slider-value-display {
     text-align: center;
+}
+
+/* Ukrycie suwaka na start i płynne pojawienie się (FOUC fix) */
+.s_website_form_field[data-type="range"] {
+    animation: sliderFadeIn 0.4s ease-in-out forwards;
+}
+
+@keyframes sliderFadeIn {
+    0% { 
+        opacity: 0; 
+        visibility: hidden; 
+    }
+    100% { 
+        opacity: 1; 
+        visibility: visible; 
+    }
 }

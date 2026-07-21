@@ -2,25 +2,26 @@
 <odoo>
     <template id="custom_field_type_slider" inherit_id="website.snippet_options" name="Custom Form Options">
         <xpath expr="//we-select[@data-name='type_opt']" position="inside">
-            <we-button data-custom-field="range">Slider / Suwak</we-button>
+            <we-button data-custom-field="range">Slider</we-button>
         </xpath>
         
         <xpath expr="." position="inside">
-            <div data-js="CustomSlider" data-selector=".s_website_form_field[data-type='range']" string="Ustawienia Suwaka">
-                <we-input string="Minimum" data-select-data-attribute="" data-attribute-name="min" placeholder="np. 0"/>
-                <we-input string="Maksimum" data-select-data-attribute="" data-attribute-name="max" placeholder="np. 100"/>
-                <we-input string="Skok (Step)" data-select-data-attribute="" data-attribute-name="step" placeholder="np. 10"/>
-                <we-input string="Wartość startowa" data-select-data-attribute="" data-attribute-name="value" placeholder="np. 50"/>
+            <div data-js="CustomSlider" data-selector=".s_website_form_field[data-type='range']" string="Slider">
+                <we-input string="Minimum" data-select-data-attribute="" data-attribute-name="min" placeholder="e.g. 0"/>
+                <we-input string="Maximum" data-select-data-attribute="" data-attribute-name="max" placeholder="e.g. 100"/>
+                <we-input string="Step" data-select-data-attribute="" data-attribute-name="step" placeholder="e.g. 10"/>
+                <we-input string="Starter value" data-select-data-attribute="" data-attribute-name="value" placeholder="e.g. 50"/>
                 
                 <!-- ZMIANA: używamy jednego słowa z małych liter "valuepos" -->
-                <we-select string="Pozycja wartości" data-attribute-name="valuepos" data-no-preview="true">
-                    <we-button data-select-data-attribute="">Ukryta</we-button>
-                    <we-button data-select-data-attribute="top">Góra</we-button>
-                    <we-button data-select-data-attribute="bottom">Dół</we-button>
-                    <we-button data-select-data-attribute="left">Lewo</we-button>
-                    <we-button data-select-data-attribute="right">Prawo</we-button>
+                <we-select string="Value position" data-attribute-name="valuepos" data-no-preview="true">
+                    <we-button data-select-data-attribute="">Hidden</we-button>
+                    <we-button data-select-data-attribute="top">Top</we-button>
+                    <we-button data-select-data-attribute="bottom">Bottom</we-button>
+                    <we-button data-select-data-attribute="left">Left</we-button>
+                    <we-button data-select-data-attribute="right">Right</we-button>
                 </we-select>
             </div>
+            
         </xpath>
     </template>
 </odoo>

@@ -119,22 +119,91 @@ publicWidget.registry.CustomWebsiteCalendar = publicWidget.Widget.extend({
         
         if (!this.selectedDate) return;
 
+        // 1. Ustawienie daty w nagłówku modala
         const displayDateEl = document.querySelector('#modalDisplayDate');
         if (displayDateEl) {
             displayDateEl.textContent = this.selectedDate;
         }
 
+        // 2. Wylistowanie wydarzeń z przyciskiem usuwania (X)
+        const renderEventsList = () => {
+            const eventsListEl = document.querySelector('#modalEventsList');
+            if (!eventsListEl) return;
+            
+            eventsListEl.innerHTML = '';
+            const dayEvents = this.events.filter(e => e.date === this.selectedDate);
+            
+            if (dayEvents.length > 0) {
+                dayEvents.forEach(evItem => {
+                    const li = document.createElement('li');
+                    li.className = 'list-group-item d-flex justify-content-between align-items-center py-2';
+                    
+                    const spanName = document.createElement('span');
+                    spanName.textContent = evItem.name;
+                    li.appendChild(spanName);
+
+                    // Przycisk usuwania (X) widoczny tylko dla admina
+                    if (this.isAdmin) {
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'btn btn-sm btn-outline-danger border-0';
+                        deleteBtn.innerHTML = '<i class="fa fa-times"/>';
+                        deleteBtn.title = "Remove event";
+                        
+                        deleteBtn.addEventListener('click', async () => {
+                            await this._deleteEvent(evItem.id);
+                            await this._fetchEvents();
+                            renderEventsList();
+                            this._renderCalendar();
+                        });
+                        li.appendChild(deleteBtn);
+                    }
+
+                    eventsListEl.appendChild(li);
+                });
+            } else {
+                const li = document.createElement('li');
+                li.className = 'list-group-item text-muted fst-italic';
+                li.textContent = 'No events.';
+                eventsListEl.appendChild(li);
+            }
+        };
+
+        renderEventsList();
+
+        // 3. Czyszczenie inputa nowego wydarzenia
         const nameInputEl = document.querySelector('#eventNameInput');
         if (nameInputEl) {
             nameInputEl.value = '';
         }
         
+        // 4. Otwarcie modala
         const modalEl = document.querySelector('#calendarAddEventModal');
         if (modalEl) {
-            // Używamy jQuery, które w Odoo ma natywne wsparcie dla metod bootstrapa
             $(modalEl).modal('show');
-        } else {
-            console.error("Nie znaleziono modala o ID #calendarAddEventModal w DOM!");
+        }
+    },
+
+    // Nowa pomocnicza funkcja do usuwania
+    _deleteEvent: async function (eventId) {
+        try {
+            const response = await fetch('/website_calendar/delete_event', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    jsonrpc: "2.0",
+                    method: "call",
+                    params: { event_id: eventId } // Klucz musi pasować do argumentu w metodzie Pythona (event_id)
+                })
+            });
+            const data = await response.json();
+            console.log("KALENDARZ: Wynik usuwania:", data);
+            
+            if (data.error) {
+                console.error("Błąd Odoo RPC:", data.error);
+                alert("Błąd serwera podczas usuwania.");
+            }
+        } catch (e) {
+            console.error("Błąd sieci podczas usuwania:", e);
         }
     },
 

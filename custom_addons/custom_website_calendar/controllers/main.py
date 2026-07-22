@@ -36,3 +36,16 @@ class WebsiteCalendar(http.Controller):
         })
         
         return {'success': True}
+
+    @http.route('/website_calendar/delete_event', type='json', auth='user', website=True)
+    def delete_calendar_event(self, event_id):
+        # Sprawdzanie uprawnień administratora/designera
+        #if not request.env.user.has_group('website.group_website_designer'):
+            #return {'success': False, 'error': 'Brak uprawnień'}
+
+        event = request.env['website.calendar.event'].browse(event_id)
+        if event.exists():
+            event.unlink()
+            return {'success': True}
+            
+        return {'success': False, 'error': 'Wydarzenie nie istnieje'}

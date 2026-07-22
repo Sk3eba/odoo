@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_website_calendar_event_public,website.calendar.event.public,model_website_calendar_event,base.group_public,1,0,0,0
+access_website_calendar_event_user,website.calendar.event.user,model_website_calendar_event,base.group_user,1,0,0,0
+access_website_calendar_event_designer,website.calendar.event.designer,model_website_calendar_event,website.group_website_designer,1,1,1,1

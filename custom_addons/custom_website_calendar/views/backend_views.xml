@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_website_calendar_event_list" model="ir.ui.view">
+        <field name="name">website.calendar.event.list</field>
+        <field name="model">website.calendar.event</field>
+        <field name="arch" type="xml">
+            <!-- Zmiana z <tree> na <list> -->
+            <list>
+                <field name="name"/>
+                <field name="date"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_website_calendar_event" model="ir.actions.act_window">
+        <field name="name">Wydarzenia na stronie</field>
+        <field name="res_model">website.calendar.event</field>
+        <!-- Zmiana z tree,form na list,form -->
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_website_calendar_event" 
+              name="Wydarzenia (Kalendarz WWW)" 
+              parent="website.menu_website_configuration" 
+              action="action_website_calendar_event" 
+              sequence="100"/>
+</odoo>

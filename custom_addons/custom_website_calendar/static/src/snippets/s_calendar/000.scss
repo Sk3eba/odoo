@@ -1,0 +1,41 @@
+.s_calendar_wrapper {
+    width: 100%;
+    /* Enforce a minimum width so the calendar doesn't get crushed in tiny columns */
+    min-width: 280px; 
+    overflow-x: auto;
+}
+
+.s_calendar_table {
+    table-layout: fixed;
+    margin-bottom: 0;
+    
+    th {
+        padding: 0.25rem !important;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    td {
+        /* Keep the aspect ratio, but enforce a minimum height fallback */
+        aspect-ratio: 1 / 1; 
+        height: 40px; 
+        
+        vertical-align: top;
+        padding: 0.25rem !important;
+        font-size: 0.85rem;
+        
+        /* Ensure characters don't misalign or spill out */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .badge {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        font-size: 0.7rem; 
+        padding: 0.2rem 0.4rem;
+        cursor: pointer;
+    }
+}

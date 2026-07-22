@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="snippets" inherit_id="website.snippets" name="Calendar Snippet">
+        <xpath expr="//snippets[@id='snippet_content']/*[1]" position="before">
+            <t t-snippet="custom_website_calendar.s_calendar" 
+               string="Calendar" 
+               t-thumbnail="/web/static/img/placeholder.png"/>
+        </xpath>
+    </template>
+</odoo>

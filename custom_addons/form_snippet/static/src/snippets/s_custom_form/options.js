@@ -1,5 +1,5 @@
 /** @odoo-module */
-import options from 'web_editor.snippets.options';
+import options from "@web_editor/js/editor/snippets.options";
 
 const CustomSlider = options.Class.extend({
     start: function () {

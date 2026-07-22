@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_calendar_options" inherit_id="website.snippet_options" name="Calendar Options">
+        <xpath expr="." position="inside">
+            <div data-js="CustomCalendarEditor" data-selector=".s_calendar">
+                <!-- Można tu dodać opcje w przyszłości -->
+            </div>
+        </xpath>
+    </template>
+</odoo>

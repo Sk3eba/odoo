@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="s_calendar" name="Calendar">
+        <!-- Changed to pt8 pb8 for minimal default vertical spacing -->
+        <section class="s_calendar pt8 pb8" 
+                 data-snippet="custom_website_calendar.s_calendar" 
+                 data-name="Calendar">
+            <!-- Changed to container-fluid so it adapts better to small columns -->
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Removed the H2 title div entirely to prevent empty space -->
+                    <div class="col-12 o_s_calendar_widget">
+                        <div class="text-center py-3 text-muted">
+                            <i class="fa fa-circle-o-notch fa-spin fa-2x"/> Loading...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_calendar_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-js="CustomCalendarEditor" data-selector=".s_calendar">
+            </div>
+        </xpath>
+    </template>
+</odoo>
